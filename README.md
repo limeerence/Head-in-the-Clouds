@@ -16,7 +16,7 @@ This was a fun learning experience, and as a first try I'm really happy with the
 
 ## Changelog
 
-**[v0.2] 3/10/2021**
+**[v0.2] 3/16/2021**
 
 - Improved platform and obstacle generation
 - Added speed indicator
