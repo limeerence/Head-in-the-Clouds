@@ -1,0 +1,21 @@
+sceneSetups:
+- path: Assets/Scenes/Level_0 (Menu).unity
+  isLoaded: 0
+  isActive: 0
+  isSubScene: 0
+- path: Assets/Scenes/Level_1 (Night).unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
+- path: Assets/Scenes/Level_2 (Morning).unity
+  isLoaded: 0
+  isActive: 0
+  isSubScene: 0
+- path: Assets/Scenes/Level_3 (Day).unity
+  isLoaded: 0
+  isActive: 0
+  isSubScene: 0
+- path: Assets/Scenes/Level_4 (Evening).unity
+  isLoaded: 0
+  isActive: 0
+  isSubScene: 0
