@@ -16,6 +16,18 @@ This was a fun learning experience, and as a first try I'm really happy with the
 
 ## Changelog
 
+**[v0.2] 3/10/2021**
+
+- Improved platform and obstacle generation
+- Added speed indicator
+- Changed game aspect ratio
+- Made powerups spin to differentiate from obstacles
+- Snowflakes will no longer reduce player speed into the negatives
+- Removed Heart powerups when at full health
+- Reduced the number of Stars per level
+
+*Thank you Newt for playtesting! <3*
+
 **[0.1] 3/7/2021**
 
 - First version
