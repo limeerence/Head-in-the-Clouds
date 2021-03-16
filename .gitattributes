@@ -1,2 +1,0 @@
-*.resS filter=lfs diff=lfs merge=lfs -text
-0e47a1b698ae3699994c425dc464b2c2 filter=lfs diff=lfs merge=lfs -text
