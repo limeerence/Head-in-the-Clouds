@@ -28,6 +28,6 @@ This was a fun learning experience, and as a first try I'm really happy with the
 
 *Thank you Newt for playtesting! <3*
 
-**[0.1] 3/7/2021**
+**[v0.1] 3/7/2021**
 
 - First version
