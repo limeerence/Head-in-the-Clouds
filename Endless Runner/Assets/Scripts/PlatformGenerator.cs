@@ -104,8 +104,8 @@ public class PlatformGenerator : MonoBehaviour
                     break;
             }
 
-            int gap = Random.Range(3, 8);
-            nextPlatformPos += new Vector3(Random.Range(-7, 7), Random.Range(-2, 2), (platformLength + gap));
+            int gap = Random.Range(3, gameController.gapUpperLimit);
+            nextPlatformPos += new Vector3(Random.Range(-gameController.platXVariance, gameController.platXVariance), Random.Range(-2, 2), (platformLength + gap));
         }
     }
 

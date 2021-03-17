@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
     public int speed = 10;
     public int jumpIntensity = 7;
     public int level = 1;
+    public int gapUpperLimit = 8;
+    public int platXVariance =7;
 
     private int timer = 30;
 
@@ -39,6 +41,9 @@ public class GameController : MonoBehaviour
         health = PlayerPrefs.GetInt("PlayerHealth", 50);
         speed = PlayerPrefs.GetInt("PlayerSpeed", 10);
         level = PlayerPrefs.GetInt("PlayerLevel", 1);
+        gapUpperLimit = PlayerPrefs.GetInt("Gap", 8);
+        platXVariance = PlayerPrefs.GetInt("PlatVariance", 7);
+
         speedText.text = "Speed : " + speed;
         levelText.text = "Level " + level;
         updateHealth(0);
@@ -69,10 +74,10 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("PlayerHealth", health);
         PlayerPrefs.SetInt("PlayerSpeed", speed + 3);
         PlayerPrefs.SetInt("PlayerLevel", level + 1);
+        PlayerPrefs.SetInt("Gap", level % 10 == 0 ? gapUpperLimit + 1 : gapUpperLimit);
+        PlayerPrefs.SetInt("PlatVariance", level % 10 == 0 ? platXVariance + 1 : platXVariance);
         int nextLevel = (SceneManager.GetActiveScene().buildIndex + 1) % 5;
-        if (nextLevel == 0)
-            nextLevel = 1;
-        SceneManager.LoadScene(nextLevel);
+        SceneManager.LoadScene(nextLevel == 0 ? 1 : nextLevel);
     }
 
     private void Update()
@@ -125,6 +130,8 @@ public class GameController : MonoBehaviour
         PlayerPrefs.DeleteKey("PlayerHealth");
         PlayerPrefs.DeleteKey("PlayerSpeed");
         PlayerPrefs.DeleteKey("PlayerLevel");
+        PlayerPrefs.DeleteKey("Gap");
+        PlayerPrefs.DeleteKey("PlatVariance");
         SceneManager.LoadScene(0);
     }
 
@@ -134,6 +141,8 @@ public class GameController : MonoBehaviour
         PlayerPrefs.DeleteKey("PlayerHealth");
         PlayerPrefs.DeleteKey("PlayerSpeed");
         PlayerPrefs.DeleteKey("PlayerLevel");
+        PlayerPrefs.DeleteKey("Gap");
+        PlayerPrefs.DeleteKey("PlatVariance");
     }
 
     IEnumerator SkipLevel()
