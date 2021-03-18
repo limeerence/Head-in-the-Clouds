@@ -1763,6 +1763,8 @@ MonoBehaviour:
   speed: 7
   jumpIntensity: 7
   level: 1
+  gapUpperLimit: 8
+  platXVariance: 7
   speedText: {fileID: 1748961507}
   timerText: {fileID: 277875414}
   levelText: {fileID: 1059162442}
