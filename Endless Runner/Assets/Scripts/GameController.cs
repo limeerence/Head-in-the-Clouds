@@ -21,14 +21,9 @@ public class GameController : MonoBehaviour
     [SerializeField] private Text levelText;
 
     [SerializeField] public Image healthBar;
-    [SerializeField] public Sprite health0;
-    [SerializeField] public Sprite health1;
-    [SerializeField] public Sprite health2;
-    [SerializeField] public Sprite health3;
-    [SerializeField] public Sprite health4;
-    [SerializeField] public Sprite health5;
+    [SerializeField] public Sprite[] healthSprites = new Sprite[6];
 
-    [SerializeField] private Image gameOverImage;
+    [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private Image moveControlsImage;
     [SerializeField] private Image nextLevelImage;
 
@@ -89,36 +84,18 @@ public class GameController : MonoBehaviour
     public void updateHealth(int addHealth)
     {
         health += addHealth;
-        switch (health)
+        if (health <= 0)
         {
-            case 0:
-                GameOver();
-                break;
-            case 10:
-                healthBar.sprite = health1;
-                break;
-            case 20:
-                healthBar.sprite = health2;
-                break;
-            case 30:
-                healthBar.sprite = health3;
-                break;
-            case 40:
-                healthBar.sprite = health4;
-                break;
-            case 50:
-                healthBar.sprite = health5;
-                break;
-            default:
-                break;
+            GameOver();
         }
+        healthBar.sprite = healthSprites[health/10];
     }
 
     public void GameOver()
     {
-        healthBar.sprite = health0;
+        healthBar.sprite = healthSprites[0];
         timer = 5;
-        gameOverImage.gameObject.SetActive(true);
+        gameOverPanel.gameObject.SetActive(true);
         GameObject.FindGameObjectWithTag("Player").GetComponent<characterController>().enabled = false;
         GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
         Debug.Log("GAME OVER!!");

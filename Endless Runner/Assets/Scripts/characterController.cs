@@ -64,8 +64,7 @@ public class characterController : MonoBehaviour
         if (other.gameObject.tag == "Slow")
         {
             Debug.Log("Slow Debuff");
-            other.gameObject.GetComponent<MeshRenderer>().enabled = false;
-            other.gameObject.GetComponent<MeshCollider>().enabled = false;
+            Destroy(other.gameObject);
             gameController.speed -= 5;
             gameController.speedText.text = "Speed : " + gameController.speed;
             gameController.StartCoroutine("slowedPopup");
@@ -75,8 +74,7 @@ public class characterController : MonoBehaviour
         if (other.gameObject.tag == "Health")
         {
             Debug.Log("1-UP");
-            other.gameObject.GetComponent<MeshRenderer>().enabled = false;
-            other.gameObject.GetComponent<MeshCollider>().enabled = false;
+            Destroy(other.gameObject);
             gameController.updateHealth(10);
             gameController.StartCoroutine("healthPopup");
         }
@@ -85,8 +83,7 @@ public class characterController : MonoBehaviour
         if (other.gameObject.tag == "Skip")
         {
             Debug.Log("Skip Level");
-            other.gameObject.GetComponent<MeshRenderer>().enabled = false;
-            other.gameObject.GetComponent<MeshCollider>().enabled = false;
+            Destroy(other.gameObject);
             gameController.StartCoroutine("SkipLevel");
         }
     }
